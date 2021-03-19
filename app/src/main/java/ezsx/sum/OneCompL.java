@@ -12,8 +12,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class OneCompL   extends ConstraintLayout{
 
-        private String digit1 = "1";
-        private String digit2 = "1";
+        private String digit1 = "0";
+        private String digit2 = "0";
         private int num_digit = 0;
         private View top_line1;
         private View top_line2;
@@ -34,13 +34,15 @@ public class OneCompL   extends ConstraintLayout{
         top_line2 = (View) findViewById(R.id.top_line2);
         bt1 = (ToggleButton)findViewById(R.id.toggle1);
         bt2 = (ToggleButton)findViewById(R.id.toggle2);
+        OnClickListener btn_click_proc = (new OnClickListener() {
+            public void onClick(View view) {
+                ToggleButton bt =  ((ToggleButton) view);
+                if (bt==bt1) setDigit1(bt.isChecked()); else setDigit2(bt.isChecked());
+            }
+        });
+        bt2.setOnClickListener(btn_click_proc);
+        bt1.setOnClickListener(btn_click_proc);
     }
-
-    public void button_click(View view) {
-        ToggleButton bt =  ((ToggleButton) view);
-        if (bt==bt1) setDigit1(bt.isChecked()); else setDigit2(bt.isChecked());
-    }
-
 
     public void setDigit1(boolean isOn) {
         if (isOn) this.digit1 = "1"; else this.digit1 = "0";

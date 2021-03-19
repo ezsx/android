@@ -21,6 +21,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ToggleButton
+        android:id="@+id/toggle12"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_states"
+        android:onClick="button_all"
+        android:tag="@string/_12"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <View
         android:layout_width="30dp"
         android:layout_height="2dp"
@@ -296,20 +311,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ToggleButton
-        android:id="@+id/toggle12"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button_states"
-        android:onClick="button_all"
-        android:tag="@string/_12"
-        android:textOff=""
-        android:textOn=""
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ToggleButton
         android:id="@+id/toggle14"

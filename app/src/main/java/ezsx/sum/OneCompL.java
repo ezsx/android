@@ -19,6 +19,7 @@ public class OneCompL   extends ConstraintLayout{
         private View top_line2;
         private ToggleButton bt1;
         private ToggleButton bt2;
+        private MulitComp.CalcDigits calcDigits;
 
 
 
@@ -37,7 +38,14 @@ public class OneCompL   extends ConstraintLayout{
         OnClickListener btn_click_proc = (new OnClickListener() {
             public void onClick(View view) {
                 ToggleButton bt =  ((ToggleButton) view);
-                if (bt==bt1) setDigit1(bt.isChecked()); else setDigit2(bt.isChecked());
+                if (bt==bt1){
+                    setDigit1(bt.isChecked());
+                    calcDigits.setDigits(1,num_digit,digit1);
+                } else {
+                    setDigit2(bt.isChecked());
+                    calcDigits.setDigits(2, num_digit,digit2);
+                }
+
             }
         });
         bt2.setOnClickListener(btn_click_proc);
@@ -59,5 +67,8 @@ public class OneCompL   extends ConstraintLayout{
     public void setFirstComp(){
         top_line1.setVisibility(INVISIBLE);
         top_line2.setVisibility(INVISIBLE);
+    }
+    public void setCalcDigits(MulitComp.CalcDigits p){
+        calcDigits = p;
     }
 }

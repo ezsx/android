@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <ToggleButton
-        android:id="@+id/toggle0"
+        android:id="@+id/toggle1"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/button_states"
         android:onClick="button_all"
         android:stateListAnimator="@anim/blink"
@@ -22,11 +22,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ToggleButton
-        android:id="@+id/toggle12"
+        android:id="@+id/toggle2"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/button_states"
         android:onClick="button_all"
         android:tag="@string/_12"
@@ -39,16 +39,16 @@
     <View
         android:layout_width="30dp"
         android:layout_height="2dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="20dp"
         android:background="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/toggle12"
+        app:layout_constraintStart_toEndOf="@+id/toggle2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:layout_width="98dp"
         android:layout_height="2dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="0dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +57,7 @@
         android:layout_width="2dp"
         android:layout_height="4dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="0dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -66,7 +66,7 @@
         android:layout_width="2dp"
         android:layout_height="16dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="2dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -75,7 +75,7 @@
         android:layout_width="26dp"
         android:layout_height="2dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -84,7 +84,7 @@
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:layout_marginStart="164dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="4dp"
         android:background="#C5C2C9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -93,7 +93,7 @@
         android:layout_width="70dp"
         android:layout_height="2dp"
         android:layout_marginStart="224dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -102,7 +102,7 @@
         android:layout_width="20dp"
         android:layout_height="2dp"
         android:layout_marginStart="224dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="36dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -111,7 +111,7 @@
         android:layout_width="2dp"
         android:layout_height="13dp"
         android:layout_marginStart="244dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="36dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -120,28 +120,31 @@
         android:layout_width="90dp"
         android:layout_height="2dp"
         android:layout_marginStart="156dp"
-        android:layout_marginTop="67dp"
+        android:layout_marginTop="47dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/top_line1"
         android:layout_width="2dp"
-        android:layout_height="12dp"
+        android:layout_height="10dp"
         android:layout_marginStart="156dp"
-        android:layout_marginTop="67dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/top_line2"
         android:layout_width="8dp"
         android:layout_height="2dp"
         android:layout_marginStart="156dp"
-        android:layout_marginTop="78dp"
+        android:layout_marginTop="10dp"
         android:background="@color/black"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

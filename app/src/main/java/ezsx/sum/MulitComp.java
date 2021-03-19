@@ -16,6 +16,7 @@ public class MulitComp extends AppCompatActivity {
         framesContainer = (LinearLayout) findViewById(R.id.multi_comp_layout);
         for (int i = 0; i < 5; i++) {
             OneCompL frame = new OneCompL(getApplicationContext());
+            if (i==0) {frame.setFirstComp();}
             frame.setNum_digit(i);
             framesContainer.addView(frame);
         }

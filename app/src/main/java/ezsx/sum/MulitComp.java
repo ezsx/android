@@ -8,34 +8,60 @@ import android.widget.TextView;
 
 import java.lang.invoke.CallSite;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 public class MulitComp extends AppCompatActivity {
 
+    public static int DIGIT_COUNT = 12;
+
     private LinearLayout framesContainer;
-    private List<OneCompL> list =  new ArrayList<>();
+    //private List<OneCompL> list =  new ArrayList<>();
     private TextView res_txt;
     private CalcDigits calc_digits;
 
     public class CalcDigits extends Object{
-        private String[] digits = { "0","0","0","0","0","0","0","0","0","0","0","0", };
-        private String[] digits1= { "0","0","0","0","0","0","0","0","0","0","0","0", };
-        private String s1;
-        private String s2;
-        private String s3;
 
-        public void setDigits(int digit,int idx,String s){
-            if (digit==1)
-                digits[idx] = s;
-            else
-                digits1[idx] = s;
+        private List<List<String>> digits;
 
-            s1 = digits[0] + digits[1] + digits[2] + digits[3] + digits[4] + digits[5] + digits[6] + digits[7] + digits[8] + digits[9] + digits[10] + digits[11];
-            s2 = digits1[0] + digits1[1] + digits1[2] + digits1[3] + digits1[4] + digits1[5] + digits1[6] + digits1[7] + digits1[8] + digits1[9] + digits1[10] + digits1[11];
-            s3 = Integer.toBinaryString(Integer.parseInt(s1, 2) + Integer.parseInt(s2, 2));
+        private List<String> ss;
+        private String res_string = "";
 
-            res_txt.setText(s1+"  "+s2+"  "+s3);
+        public CalcDigits() {
+             List<String> digits1 = new ArrayList<>(DIGIT_COUNT);
+             List<String> digits2 = new ArrayList<>(DIGIT_COUNT);
+             String init_s = "";
+             for(int i=0;i<DIGIT_COUNT;i++){
+                 digits1.add("0");
+                 digits2.add("0");
+                 init_s = init_s + "0";
+             }
+            ss = new ArrayList<>(2);
+
+             digits = new ArrayList<>(2);
+             digits.add(0,digits1);
+             digits.add(1,digits2);
+             ss.add(init_s);
+             ss.add(init_s);
+        }
+
+        public void setDigits(int digit_in,int idx,String s){
+            int digit = digit_in -1;
+            List<String> dig = digits.get(digit);
+            dig.set(idx,s);
+            Iterator<String> iter = dig.iterator();
+
+            String s_tmp = "";
+            while(iter.hasNext()){
+                s_tmp = s_tmp + iter.next();
+            }
+            ss.set(digit,s_tmp);
+            res_string = Integer.toBinaryString(Integer.parseInt(ss.get(0), 2) + Integer.parseInt(ss.get(1), 2));
+
+            res_txt.setText("    " + ss.get(0)+" + "+ss.get(1)+" = \n    "+res_string);
 
         }
 
@@ -48,13 +74,13 @@ public class MulitComp extends AppCompatActivity {
         framesContainer = (LinearLayout) findViewById(R.id.multi_comp_layout);
         res_txt = (TextView) findViewById(R.id.res_txt);
         calc_digits = new CalcDigits();
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < DIGIT_COUNT; i++) {
             OneCompL frame = new OneCompL(getApplicationContext());
             if (i==0) {frame.setFirstComp();}
-            frame.setNum_digit(11 - i);
+            frame.setNum_digit(DIGIT_COUNT - 1 - i);
             frame.setCalcDigits(calc_digits);
             framesContainer.addView(frame);
-            list.add(i,frame);
+            //list.add(i,frame);
         }
 
 

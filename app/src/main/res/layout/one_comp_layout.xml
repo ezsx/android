@@ -39,7 +39,7 @@
     <View
         android:layout_width="30dp"
         android:layout_height="2dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="26dp"
         android:background="@color/black"
         app:layout_constraintStart_toEndOf="@+id/toggle2"
         app:layout_constraintTop_toTopOf="parent" />

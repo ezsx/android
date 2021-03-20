@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class OneCompL   extends ConstraintLayout{
 
+
         private String digit1 = "0";
         private String digit2 = "0";
         private int num_digit = 0;

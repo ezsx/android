@@ -2,8 +2,24 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
+    <ToggleButton
+        android:id="@+id/lamp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="292dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/lamp_state"
+        android:stateListAnimator="@anim/blink"
+        android:clickable="false"
+        android:tag="@string/_0"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ToggleButton
         android:id="@+id/toggle1"
@@ -37,6 +53,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/button_2_l"
         android:layout_width="30dp"
         android:layout_height="2dp"
         android:layout_marginTop="26dp"
@@ -45,24 +62,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/button_2_line"
         android:layout_width="98dp"
         android:layout_height="2dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="0dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/button_1_line"
         android:layout_width="2dp"
         android:layout_height="4dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="0dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/button_3_line"
         android:layout_width="2dp"
         android:layout_height="16dp"
         android:layout_marginStart="140dp"
@@ -72,6 +90,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/button_4_line"
         android:layout_width="26dp"
         android:layout_height="2dp"
         android:layout_marginStart="140dp"
@@ -90,6 +109,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/lamp_line"
         android:layout_width="70dp"
         android:layout_height="2dp"
         android:layout_marginStart="224dp"
@@ -99,6 +119,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/bot_line1"
         android:layout_width="20dp"
         android:layout_height="2dp"
         android:layout_marginStart="224dp"
@@ -108,6 +129,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/bot_line2"
         android:layout_width="2dp"
         android:layout_height="13dp"
         android:layout_marginStart="244dp"
@@ -117,6 +139,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
+        android:id="@+id/bot_line3"
         android:layout_width="90dp"
         android:layout_height="2dp"
         android:layout_marginStart="156dp"

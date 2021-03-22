@@ -50,6 +50,24 @@ public class MulitComp extends AppCompatActivity {
              ss.add(init_s);
         }
 
+        public String toStringDec(String binary_string1){
+            String binary_string;
+            if (binary_string1.length() <= DIGIT_COUNT)
+                 binary_string = "00000000000000000000000000000".substring(0,DIGIT_COUNT-binary_string1.length())+binary_string1;
+            else
+                 binary_string =  binary_string1.substring(1,DIGIT_COUNT+1);
+            if (binary_string.charAt(0)=='1') {
+                // отрицательное
+                //инвертируем все
+                String res = binary_string.replace("1","b");
+                res = res.replace("0","1");
+                res = res.replace("b","0");
+                return "-"+Integer.toString(Integer.parseInt(res,2)+1);
+            } else {
+                return Integer.toString(Integer.parseInt(binary_string,2));
+            }
+        }
+
         public void setDigits(int digit_in,int idx,String s){
             int digit = digit_in -1;
             List<String> dig = digits.get(digit);
@@ -63,8 +81,9 @@ public class MulitComp extends AppCompatActivity {
 
             ss.set(digit,s_tmp);
             res_string = Integer.toBinaryString(Integer.parseInt(ss.get(0), 2) + Integer.parseInt(ss.get(1), 2));
-
-            res_txt.setText("    " + ss.get(0)+" + "+ss.get(1)+" = \n    "+res_string);
+            String res_stringDec = toStringDec(res_string);
+            res_txt.setText(" " + toStringDec(ss.get(0)) + " + " + toStringDec(ss.get(1)) + " =  " + res_stringDec+ "\n"+
+                " " + ss.get(0) + " + " + ss.get(1) + " =  " + res_string);
             reCalcCompL();
         }
 

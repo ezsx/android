@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class MulitComp extends AppCompatActivity {
 
-    public static int DIGIT_COUNT = 12;
+    public static int DIGIT_COUNT = 32;
 
     private LinearLayout framesContainer;
     private List<OneCompL> compL_list =  new ArrayList<>();
@@ -50,12 +50,7 @@ public class MulitComp extends AppCompatActivity {
              ss.add(init_s);
         }
 
-        public String toStringDec(String binary_string1){
-            String binary_string;
-            if (binary_string1.length() <= DIGIT_COUNT)
-                 binary_string = "00000000000000000000000000000".substring(0,DIGIT_COUNT-binary_string1.length())+binary_string1;
-            else
-                 binary_string =  binary_string1.substring(1,DIGIT_COUNT+1);
+        private String toStringDec(String binary_string){
             if (binary_string.charAt(0)=='1') {
                 // отрицательное
                 //инвертируем все
@@ -81,7 +76,12 @@ public class MulitComp extends AppCompatActivity {
 
             ss.set(digit,s_tmp);
             res_string = Integer.toBinaryString(Integer.parseInt(ss.get(0), 2) + Integer.parseInt(ss.get(1), 2));
+            if (res_string.length() > DIGIT_COUNT)
+                res_string=res_string.substring(1,DIGIT_COUNT+1);
+            else
+                res_string = "00000000000000000000000000000".substring(0,DIGIT_COUNT-res_string.length())+res_string;
             String res_stringDec = toStringDec(res_string);
+            if (!((res_string.charAt(0) == ss.get(0).charAt(0)) || (res_string.charAt(0) == ss.get(1).charAt(0)))) res_stringDec = getResources().getString(R.string.overflow);
             res_txt.setText(" " + toStringDec(ss.get(0)) + " + " + toStringDec(ss.get(1)) + " =  " + res_stringDec+ "\n"+
                 " " + ss.get(0) + " + " + ss.get(1) + " =  " + res_string);
             reCalcCompL();
@@ -124,6 +124,7 @@ public class MulitComp extends AppCompatActivity {
             framesContainer.addView(frame);
             compL_list.add(i,frame);
         }
+
 
 
     }

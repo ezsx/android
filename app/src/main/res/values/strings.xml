@@ -24,4 +24,5 @@
     <string name="_21">21  </string>
     <string name="_22">22  </string>
     <string name="_23">23  </string>
+    <string name="overflow"> переполнение  </string>
 </resources>

@@ -100,6 +100,12 @@ public class OneCompL   extends ConstraintLayout{
         bot_line1.setVisibility(INVISIBLE);
         bot_line2.setVisibility(INVISIBLE);
         bot_line3.setVisibility(INVISIBLE);
+        bt1.setTextOff("0");
+        bt1.setTextOn("1");
+        bt1.setBackgroundResource(R.drawable.last_buttons);
+        bt2.setTextOff("0");
+        bt2.setTextOn("1");
+        bt2.setBackgroundResource(R.drawable.last_buttons);
     }
 
     public void setCalcDigits(MulitComp.CalcDigits p){

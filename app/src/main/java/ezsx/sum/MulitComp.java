@@ -2,7 +2,10 @@ package ezsx.sum;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,15 +17,20 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
+import java.math.BigInteger;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MulitComp extends AppCompatActivity {
 
-    public static int DIGIT_COUNT = 32;
+    public int DIGIT_COUNT ;
 
     private LinearLayout framesContainer;
     private List<OneCompL> compL_list =  new ArrayList<>();
     private TextView res_txt;
     private CalcDigits calc_digits;
+
+
 
 
     public class CalcDigits extends Object{
@@ -57,12 +65,19 @@ public class MulitComp extends AppCompatActivity {
                 String res = binary_string.replace("1","b");
                 res = res.replace("0","1");
                 res = res.replace("b","0");
-                return "-"+Integer.toString(Integer.parseInt(res,2)+1);
+                return "-"+ new BigInteger(res,2).add(BigInteger.ONE).toString();
             } else {
-                return Integer.toString(Integer.parseInt(binary_string,2));
+
+                return new BigInteger(binary_string,2).toString();
             }
         }
-
+        private String getZero(){
+            StringBuilder str = new StringBuilder(DIGIT_COUNT);
+            for (int i =0; i< DIGIT_COUNT ; ++i){
+                str.append("0");
+            }
+            return str.toString();
+        }
         public void setDigits(int digit_in,int idx,String s){
             int digit = digit_in -1;
             List<String> dig = digits.get(digit);
@@ -75,11 +90,12 @@ public class MulitComp extends AppCompatActivity {
             }
 
             ss.set(digit,s_tmp);
-            res_string = Integer.toBinaryString(Integer.parseInt(ss.get(0), 2) + Integer.parseInt(ss.get(1), 2));
+            BigInteger bb = new BigInteger(ss.get(0), 2).add(new BigInteger(ss.get(1), 2));
+            res_string = bb.toString(2);
             if (res_string.length() > DIGIT_COUNT)
                 res_string=res_string.substring(1,DIGIT_COUNT+1);
             else
-                res_string = "00000000000000000000000000000".substring(0,DIGIT_COUNT-res_string.length())+res_string;
+                res_string = getZero().substring(0,DIGIT_COUNT-res_string.length())+res_string;
             String res_stringDec = toStringDec(res_string);
             if (!((res_string.charAt(0) == ss.get(0).charAt(0)) || (res_string.charAt(0) == ss.get(1).charAt(0)))) res_stringDec = getResources().getString(R.string.overflow);
             res_txt.setText(" " + toStringDec(ss.get(0)) + " + " + toStringDec(ss.get(1)) + " =  " + res_stringDec+ "\n"+
@@ -113,6 +129,12 @@ public class MulitComp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mulit_comp);
+
+        // Get the Intent that started this activity and extract the string
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        int dig_s = Integer.parseInt(message, 10);
+        DIGIT_COUNT =dig_s;
         framesContainer = (LinearLayout) findViewById(R.id.multi_comp_layout);
         res_txt = (TextView) findViewById(R.id.res_txt);
         calc_digits = new CalcDigits();

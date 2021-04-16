@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MulitComp" >
+    tools:context=".MulitComp"
+    android:background="#050E31">
 
     <TextView
         android:id="@+id/res_txt"
@@ -12,6 +13,8 @@
         android:layout_height="71dp"
         android:layout_marginTop="4dp"
         android:fadeScrollbars="true"
+        android:fontFamily="ntr"
+        android:textColor="@color/grey"
         android:isScrollContainer="true"
         android:scrollbarStyle="insideInset"
         android:scrollbars="vertical"
@@ -28,7 +31,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/res_txt">
+        app:layout_constraintTop_toBottomOf="@+id/res_txt"
+        android:background="@drawable/layout_st">
 
         <LinearLayout
             android:id="@+id/multi_comp_layout"

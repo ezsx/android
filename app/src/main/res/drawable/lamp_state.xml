@@ -10,8 +10,8 @@
             <gradient
                 android:type="radial"
                 android:gradientRadius="800"
-                android:startColor="#FF0000"
-                android:endColor="#FF6060"
+                android:startColor="@color/lamp_grey"
+                android:endColor="@color/black"
                 android:centerX="0.5"
                 android:centerY="0.5">
             </gradient>
